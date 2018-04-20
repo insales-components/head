@@ -1,0 +1,71 @@
+
+{% if template contains 'product' %}
+  {% if title == product.title %}
+    {% assign title_product = messages.title_product | default: "– купить в интернет-магазине, цена, заказ online" %}
+    {% assign main_title = product.title | append:  " "  | append: title_product  %}
+  {% endif %}
+
+{% elsif template contains 'collection' %}
+  {% if title == collection.title %}
+    {% assign title_collection = messages.title_collection | default: "– купить в интернет-магазине по лучшей цене" %}
+    {% assign  main_title =  collection.title  | append:  " "  | append: title_collection  %}
+  {% endif %}
+
+{% elsif template contains 'cart' %}
+      {% assign main_title = messages.cart_title | default: 'Корзина'  %}
+
+{% elsif template contains 'search' %}
+      {% assign main_title = messages.search_title | default: 'Поиск'  %}
+
+{% elsif template contains 'compare' %}
+    {% assign main_title = messages.comparison_title | default: 'Сравнение'  %}
+
+{% elsif template contains  'index' %}
+  {% if title != index.title %}
+    {% assign main_title = index.title %}
+  {% endif %}
+
+{% elsif template contains  'blog' %}
+  {% if title != '' %}
+    {% assign main_title = title  %}
+  {% else %}
+    {% assign main_title = blog.title  %}
+  {% endif %}
+
+{% elsif template contains  'article' %}
+  {% if title != '' %}
+    {% assign main_title = title  %}
+  {% else %}
+    {% assign main_title = article.title  %}
+  {% endif %}
+
+{% elsif template contains  'page' %}
+  {% if title != '' %}
+    {% assign main_title = title  %}
+  {% else %}
+    {% assign main_title = page.title  %}
+  {% endif %}
+
+{% else %}
+<title>
+  {% yield 'title' %}
+</title>
+{% endif %}
+
+  <title>
+    {% unless current_page == null  %}
+      {% assign title_page =  messages.title_page  | default: " – страница №" %}
+      {% assign count_page =  title_page  | append: current_page %}
+    {% endunless %}
+    {% if main_title == null %}
+        {{ title }}{{ count_page }}
+    {% else %}
+        {{ main_title }}{{ count_page }}
+    {% endif %}
+  </title>
+
+{% assign count_page = null %}
+{% assign main_title = null %}
+{% assign page_title= null %}
+{% assign title_product = null %}
+{% assign title_collection = null %}

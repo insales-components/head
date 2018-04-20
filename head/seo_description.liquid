@@ -1,0 +1,27 @@
+<meta name="keywords" content="{{ keywords }}"/>
+
+{% if template contains 'cart' %}
+  {% assign page_description = messages.cart_description | default: "Корзина" %}
+
+{% elsif template contains 'search' %}
+  {% assign page_description = messages.search_description | default: "Поиск" %}
+
+{% elsif template contains 'compare' %}
+  {% assign page_description = messages.compare_description | default: "Сравнение" %}
+
+{% endif %}
+
+{% unless current_page == null  %}
+  {% assign count_page =  messages.title_page | default: " – страница №"  | append: current_page %}
+{% endunless %}
+
+{% if page_description %}
+
+  <meta name="description" content="{{ page_description }}{{ count_page }}"/>
+{% else %}
+  <meta name="description" content="{{ description }}{{ count_page }}"/>
+
+{% endif %}
+
+{% assign count_page = null %}
+{% assign page_description= null %}
