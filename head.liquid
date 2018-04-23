@@ -9,11 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
 
-{% include "head_menu" %}
-
 <!-- canonical url-->
 {% if template contains "collection" %}
-
   {% if filter %}
     {% assign canon =  filter.handle %}
   {% endif %}
