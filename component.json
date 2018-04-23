@@ -1,14 +1,13 @@
 {
   "name": "Содержимое тега head",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Open graph, seo title, seo description",
   "author": "LiquidHub.ru",
   "type": "snippets",
-  "link": "https://github.com/insales-components/head/archive/v1.0.0.zip",
   "homepage": "https://github.com/insales-components/head",
   "props": {
-    "adaptive": false,
     "plugins": false,
+    "cellsio": false,
     "common": false,
     "liquid": true
   },
