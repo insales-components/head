@@ -4,7 +4,7 @@
   "description": "Open graph, seo title, seo description",
   "author": "LiquidHub.ru",
   "type": "snippets",
-  "link": null,
+  "link": "https://github.com/insales-components/head/archive/v1.0.0.zip",
   "homepage": "https://github.com/insales-components/head",
   "props": {
     "adaptive": false,
