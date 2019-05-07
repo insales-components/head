@@ -1,14 +1,12 @@
 
 {% if template contains 'product' %}
   {% if title == product.title %}
-    {% assign title_product = messages.title_product | default: "– купить в интернет-магазине, цена, заказ online" %}
-    {% assign main_title = product.title | append:  " "  | append: title_product  %}
+    {% assign main_title = product.title %}
   {% endif %}
 
 {% elsif template contains 'collection' %}
   {% if title == collection.title %}
-    {% assign title_collection = messages.title_collection | default: "– купить в интернет-магазине по лучшей цене" %}
-    {% assign  main_title =  collection.title  | append:  " "  | append: title_collection  %}
+    {% assign  main_title =  collection.title %}
   {% endif %}
 
 {% elsif template contains 'cart' %}
